@@ -47,7 +47,10 @@ class Pivotal(object):
         headers = {
             'X-TrackerToken': self.token,
         }
-        response, content = h.request(self.url, headers=headers)
+        return h.request(self.url, headers=headers)
+
+    def get_etree(self):
+        response, content = self.get()
         return etree.fromstring(content)
 
     def post(self, body):

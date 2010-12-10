@@ -37,20 +37,31 @@ pattern of chainable methods, for example::
     
     # Assuming a base URL of 'http://www.pivotaltracker.com/services/v3/'
     
-    # Perform a GET at /projects
-    etree = pv.projects().get()
+    # Perform a GET at /projects and processes content via ElementTree.
+    etree = pv.projects().get_etree()
+
+    # Perform the same GET at /projects but return the response and
+    # content direct from httplib2.
+    response, content = pv.projects().get()
+
+Note: As seen above, there are two ways to get the content of a request:
+
+    #. Call ``get_etree()`` to return the content as ElementTree object.
+
+    #. Call ``get()`` to return the tuple containing both the response and
+       content direct from httplib2.
 
 Any positional arguments get pushed onto the URL::
 
     # Perform a GET at /projects/[id]/stories where [id] is a project ID.
-    etree = pv.projects(id).stories().get()
+    etree = pv.projects(id).stories().get_etree()
 
 Any keyword arguments get mapped to the URL query string and appended at the
 end of the URL::
 
     # Perform a GET at /projects/[id]/stories and filter stories by those that
     # are not started.
-    etree = pv.projects(id).stories(filter='state:unstarted').get()
+    etree = pv.projects(id).stories(filter='state:unstarted').get_etree()
     # Results in a URL of: /projects/[id]/stories?filter=state%3Aunstarted
 
 Note: POSTs are currently not implemented, but the plan is to implement a

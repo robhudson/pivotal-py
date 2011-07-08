@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.1.3 (unreleased)
+------------------
+
+- Prevent circular import of httplib2 before it can be installed with
+  distribute/setuptools.
+
 0.1.2 (2011-07-8)
 -----------------
 

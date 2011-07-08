@@ -1,14 +1,14 @@
 CHANGES
 =======
 
-0.1.3 (unreleased)
+0.1.3 (2011-07-08)
 ------------------
 
-- Prevent circular import of httplib2 before it can be installed with
-  distribute/setuptools.
+- Removed Pivotal import from __init__.py which was causing httplib2
+  issues.
 
-0.1.2 (2011-07-8)
------------------
+0.1.2 (2011-07-08)
+------------------
 
 - Added ``httplib2`` as a dependency.
 

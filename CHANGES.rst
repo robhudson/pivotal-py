@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.1.2 (unreleased)
+------------------
+
+- Added ``httplib2`` as a dependency.
+
 0.1.1 (2010-12-10)
 ------------------
 

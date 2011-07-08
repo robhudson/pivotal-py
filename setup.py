@@ -12,6 +12,7 @@ setup(
     author_email='rob@cogit8.org',
     url='http://github.com/robhudson/pivotal-py/',
     packages=['pivotal'],
+    install_requires=['httplib2'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',

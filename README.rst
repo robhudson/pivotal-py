@@ -31,7 +31,7 @@ token.
 Once you have an API token making requests against the APIs follows a simple
 pattern of chainable methods, for example::
 
-    from pivotal import Pivotal
+    from pivotal.pivotal import Pivotal
     
     pv = Pivotal('TOKEN')
     

@@ -4,22 +4,26 @@ import httplib2
 from urllib import urlencode
 
 
-BASE_URL = 'http://www.pivotaltracker.com/services/v3/'
-
+BASE_URL = 'www.pivotaltracker.com/services/v3/'
+PROTO_SWITCH = {
+    True: 'https://',
+    False: 'http://'
+}
 
 class Pivotal(object):
 
-    def __init__(self, token):
+    def __init__(self, token, use_https=True):
         self.token = token
         self.path = []
         self.qs = {}
+        self.use_https = bool(use_https)
 
     def __getattr__(self, method):
         # Create a new copy of self
-        obj = self.__class__(self.token)
+        obj = self.__class__(self.token, self.use_https)
         obj.path = copy.copy(self.path)
         obj.qs = copy.copy(self.qs)
-
+        
         obj.path.append(method)
         return obj.mock_attr
 
@@ -36,7 +40,7 @@ class Pivotal(object):
 
     @property
     def url(self):
-        url = BASE_URL + '/'.join(map(str, self.path))
+        url = PROTO_SWITCH[self.use_https] + BASE_URL + '/'.join(map(str, self.path))
         if self.qs:
             url += '?' + urlencode(self.qs)
         return url

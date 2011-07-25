@@ -1,3 +1,6 @@
-VERSION = (0, 1, 3)
-__version__ = '.'.join(map(str, VERSION))
+from pivotal import Pivotal
 
+try:
+    VERSION = __import__('pkg_resources').get_distribution('pivotal-py').version
+except Exception, e:
+    VERSION = 'unknown'

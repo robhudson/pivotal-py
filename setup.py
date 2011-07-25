@@ -5,7 +5,7 @@ long_description = open('README.rst').read() + open('CHANGES.rst').read()
 
 setup(
     name='pivotal-py',
-    version=__import__('pivotal').__version__,
+    version='0.1.4',
     description='Thin client for Pivotal Tracker\'s API',
     long_description=long_description,
     author='Rob Hudson',

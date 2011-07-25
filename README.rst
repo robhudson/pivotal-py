@@ -31,9 +31,9 @@ token.
 Once you have an API token making requests against the APIs follows a simple
 pattern of chainable methods, for example::
 
-    from pivotal.pivotal import Pivotal
+    import pivotal
     
-    pv = Pivotal('TOKEN')
+    pv = pivotal.Pivotal('TOKEN')
     
     # Assuming a base URL of 'http://www.pivotaltracker.com/services/v3/'
     
@@ -69,5 +69,4 @@ Note: POSTs are currently not implemented, but the plan is to implement a
 
     # TODO: POST to /projects to create a new project
     etree = pv.projects().post(xml_body)
-
 

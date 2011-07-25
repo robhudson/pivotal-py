@@ -1,6 +1,16 @@
 CHANGES
 =======
 
+0.1.4
+-----
+
+- Added support for HTTPS for Pivotal projects that choose to require
+  HTTPS for API access.
+
+- Re-configured the version string to exist in the setup.py.
+
+- Added back in the Pivotal import in ``__init__``.
+
 0.1.3 (2011-07-08)
 ------------------
 
